@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container" id="app">
+       <button class="signIn" v-on:click="signIn">Sign In</button>
+       <button class="register" v-on:click="register">register</button>
+       <div v-show= "registerPage" id="register">
+           <label for="name">Name</label><br>
+           <input v-model="name" type="text"><br>
+           <label for="e-mail">E-mail</label><br>
+           <input v-model="email" type="text"><br>
+           <label for="password">Password</label><br>
+           <input v-model="password" type="text"><br>
+           <button @click="registerSubmit" type="submit">Submit</button><br>
+       </div>
+       <div v-show="loginPage" id="register">
+      
+        <label for="e-mail">E-mail</label><br>
+        <input type="text"><br>
+        <label for="password">Password</label><br>
+        <input type="password"><br>
+        <button @click="loginSubmit" type="submit">Submit</button><br>
+    </div>
+    <h1 v-show="seen">{{message}}</h1>
+
+
+
+   </div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> 
+    <script src="app.js"></script>
+</body>
+</html>
