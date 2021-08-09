@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic Components Example</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="login-registration">
+      <button
+        v-for="tab in tabs"
+        v-bind:key="tab"
+        v-on:click="currentTab = tab"
+        class="tab"
+      >
+        {{ tab }}
+      </button>
+
+      <component v-bind:is="currentTabComponent" ></component>
+    </div>
+    <script type="text/x-template" id="login">
+        <div>
+            <label for="email">E-mail</label><br>
+            
+            <input v-model="email" type="text"><br>
+    
+            <label for="password">Password</label><br>
+           
+            <input v-model="password" type="text"><br>
+            <button  v-on:click="login" type="submit" class="submit" >Login</button>
+        </div>
+    </script>
+    <script type="text/x-template" id="register">
+        <div>
+            <label for="name">Name</label><br>
+           
+            <input v-model="name" type="text"><br>
+
+            <label for="age">Age</label><br>
+           
+            <input v-model="age" type="text"><br>
+
+            <label for="number">Phone Number</label><br>
+           
+            <input v-model="phoneNumber" type="text"><br>
+
+            <label for="email">E-mail</label><br>
+           
+            <input v-model="email" type="text"><br>
+    
+            <label for="password">Password</label><br>
+            
+            <input v-model="password" type="text"><br>
+            <button  v-on:click="register" type="submit" class="submit" >Register</button>
+        </div>
+    </script>
+    <script src="app.js"></script>
+   
+  </body>
+</html>
