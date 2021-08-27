@@ -26,7 +26,7 @@
 
            </div>
 
-           <button @click="register" type="submit">Register</button>
+           <button @click.prevent="register" type="submit">Register</button>
 
         </form>
         <div>
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data(){
         return {
@@ -46,13 +47,17 @@ export default {
         }
     },
     methods:{
-      register:function() {
-           localStorage.setItem('name',this.name);
-            localStorage.setItem('email',this.email);
-            localStorage.setItem('password',this.password);
-           console.log( window.localStorage);
-           alert("Registration Successful");
-      }
+     register(){
+      axios.post('https://login-register-60f4f-default-rtdb.asia-southeast1.firebasedatabase.app/users.json',{
+        name:this.name,
+        email:this.email,
+        password:this.password,
+      });
+alert("Registration Successful");
+      this.name ="";
+      this.email="";
+      this.password="";
+    }
     }
 }
 </script>
